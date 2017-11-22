@@ -16,10 +16,6 @@ class Reservation
     vector<string> comments; //lehet hogy tárolnunk kellene a dátumot is, amikor hozzáadtuk a megjegyzést(Dani)
     int start;
     int end;//ezeket is tároljuk hátha jól jön(Dani)
-    //  Szerintem a commenttel azért ne foglalkozzunk nagyon mert úgyis csak egy ilyen alibi dolog volt, tehát tök mind1 hogy mi van benne
-    //  úgyis csak azért kell hogy legyen még 1 függvény xD
-    //  Azért ezt a start, end dolgot át kéne gondolni, mert sztem felesleges és csak bonyolodik az egész
-
 public:
     Reservation();
     Reservation(int s, int e, string name);
