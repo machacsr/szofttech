@@ -2,5 +2,5 @@
 
 asd::asd()
 {
-
+ //Ez mit keres itt? :)
 }
