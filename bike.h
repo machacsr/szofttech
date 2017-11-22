@@ -19,7 +19,8 @@ class Bike
     Reservation* res_infos;
 public:
     Bike(string _type, string _color, int _prize);
-    void PrintBike() const; // Kiírja a biciklik adatait. <---//De itt csak ennek az egynek írja ki az adatait, nem?(Dani)
+    void PrintBike() const; // Kiírja egy bicikli adatait. <---//De itt csak ennek az egynek írja ki az adatait, nem?(Dani)
+                                                               //De igazad van, csak egy bicikli adatait írja ki javítottam a commentet.
     void Need_to_Repair(); // ezzel állítjuk be hogy javításra szorul egy bicikli.
     void Repair();          //ezzel javítjuk a bicikliket.
     void setPrize(int value);
