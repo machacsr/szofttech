@@ -13,7 +13,7 @@ public:
      *  totalRevenue()  -   Bevételek összesítése
      * */
 
-    void addUser();
+    Employee* addUser();
     void createStatistics();
     void repairList();
     int totalRevenue();

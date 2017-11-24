@@ -170,6 +170,8 @@ int main()
                     switch(getInt()){
                         case 1: pause(1); break; // pause() helyére kerülnek a különböző függvények
                         case 2: pause(2); break;
+                        case 3: pause(2); break;
+                        case 4: pause(2); break;
                         case 9: subexit=true; break;
                         default: cout << "Please choose another option: ";
                     }
@@ -178,7 +180,7 @@ int main()
 
             case 9: finished=true;
                 break;
-                
+
             default: cout << "Please choose another option: ";
         }
     }

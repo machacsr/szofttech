@@ -18,6 +18,8 @@ class Reservation
     int end; //ezeket is tároljuk hátha jól jön(Dani)
     int cost; //ennyibe került a foglalás (Owner - Bevételek összesítéséhez kell)
 
+    //static int numOfReservation; // Owner - statisztikához kell
+
 public:
     Reservation();
     Reservation(int s, int e, string name);
