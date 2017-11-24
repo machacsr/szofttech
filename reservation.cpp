@@ -89,4 +89,8 @@ void Reservation::ListComments() const
     }
 }
 
+int Reservation::getCost() const {
+    return cost;
+}
+
 

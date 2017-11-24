@@ -74,6 +74,8 @@ void showMenu(int level=0){
             {4, "Owner menu"},
             {4, "1. Add user"},
             {4, "2. Statistics"},
+            {4, "3. List of repair"},
+            {4, "3. Total revenue"},
             {4, "--------------------"},
             {4, "9. Back to main menu"},
         {0, "9. Exit program"}
@@ -162,7 +164,21 @@ int main()
                 break;
             case 3: showMenu(3); break;
 
-            case 9: finished=true; break;
+            case 4: //Owner menu
+                while(!subexit){
+                    showMenu(4);
+                    switch(getInt()){
+                        case 1: pause(1); break; // pause() helyére kerülnek a különböző függvények
+                        case 2: pause(2); break;
+                        case 9: subexit=true; break;
+                        default: cout << "Please choose another option: ";
+                    }
+                }
+                break;
+
+            case 9: finished=true;
+                break;
+                
             default: cout << "Please choose another option: ";
         }
     }
