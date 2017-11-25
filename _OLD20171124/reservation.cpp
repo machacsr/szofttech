@@ -7,6 +7,7 @@ Reservation::Reservation()
     {
         i="*";
     }
+    //numOfReservation++;
 }
 
 Reservation::Reservation(int s, int e, string name):
@@ -18,6 +19,7 @@ Reservation::Reservation(int s, int e, string name):
     {
         i="*";
     }
+    //numOfReservation++;
 }
 
 bool Reservation::Reservable() //kitöröltem innen a start, end inteket mert tárolja az osztály(Dani)
@@ -87,6 +89,10 @@ void Reservation::ListComments() const
     {
         cout << i<<endl;;
     }
+}
+
+int Reservation::getCost() const {
+    return cost;
 }
 
 

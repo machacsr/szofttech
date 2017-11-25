@@ -30,19 +30,26 @@ int getBikeIndex(string type, vector<Bike*> b){
         }
     }
 }
+
 void clearScreen(){
     #if defined(_WIN32) //if windows
         system("cls");
     #else
         system("clear");    //if other
     #endif  //finish
-}
-void welcomeScreen(){
-    cout << "====================================" << endl;
-    cout << "          Bike Rental v1.0          " << endl;
-    cout << "====================================" << endl << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "       __@                              " << endl;
+    cout << "    _`\\<,_      Bike Rental v1.0       " << endl;
+    cout << "   (*)/ (*)                             " << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
 }
 
+<<<<<<< HEAD:_OLD20171124/main.cpp
+void pause(){
+    cout << endl << "Press ENTER to return to menu...";
+    string tmp;
+    getline(cin,tmp);
+=======
 void showMenu(int level=0){
     clearScreen();
     welcomeScreen();
@@ -74,6 +81,8 @@ void showMenu(int level=0){
             {4, "Owner menu"},
             {4, "1. Add user"},
             {4, "2. Statistics"},
+            {4, "3. List of repair"},
+            {4, "3. Total revenue"},
             {4, "--------------------"},
             {4, "9. Back to main menu"},
         {0, "9. Exit program"}
@@ -85,13 +94,14 @@ void showMenu(int level=0){
         }
     }
     cout << endl << "Choose an option: ";
+>>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991:main.cpp
 }
-void pause(int val=0){ // Ezt elvileg nem használjuk majd.
-    cout << endl << "Selected option: " << val << endl;
-    cout << endl << "Press ENTER to contionue..." << endl;
+void testFunc(){
+    cout << endl << "Test function, press ENTER to continue...";
     string tmp;
     getline(cin,tmp);
 }
+
 
 int getInt(){
     string inputString="";
@@ -102,7 +112,7 @@ int getInt(){
             inputInt=stoi(inputString);
             break;
         }catch(exception &e){
-            cout << "Invalid input. Please enter a number: " << endl;
+            cout << "Invalid input. Please enter a number: ";
         }
     }
     return inputInt;
@@ -114,9 +124,128 @@ string getString(){
     return inputString;
 }
 
+void loadMenu(){
+    struct option{
+        int key;
+        string name;
+        void (*func)();
+        public:
+            option(int key, string name, void (*func)() = nullptr):
+                 key(key), name(name), func(*func){}
+    };
+    struct menu{
+        int key;
+        string name;
+        list<option> options;
+    public:
+        menu(int key, string name, list<option> options):
+             key(key), name(name), options(options){}
+    };
+
+    /*  Az almenükhöz be lehet rakni a megfelelő menüpontokat és függvényeket.
+     */
+    list<menu> mainmenu = {
+        {1, "Admin", {
+             {1, "Add Bike", &testFunc},
+             {2, "Search Bike", &testFunc},
+             {3, "Edit Bikes", &testFunc},
+             {4, "Delete Bike", &testFunc},
+             {0, "--------------------"},
+             {9, "Back to main menu"}
+         }},
+        {2, "Repairman", {
+             {1, "Repair Bike", &testFunc},
+             {2, "Search Bike", &testFunc},
+             {0, "---------------------"},
+             {9, "Back to main menu"}
+         }},
+        {3, "Operator", {
+             {1, "Add Reservation", &testFunc},
+             {2, "Search Reservation", &testFunc},
+             {3, "Edit Reservation", &testFunc},
+             {4, "Delete Reservation", &testFunc},
+             {0, "---------------------"},
+             {9, "Back to main menu"}
+         }},
+        {4, "Owner", {
+             {1, "List blabla", &testFunc},
+             {2, "Add user", &testFunc},
+             {3, "Statistics", &testFunc},
+             {0, "--------------------"},
+             {9, "Back to main menu"}
+         }},
+        {0, "--------------------", {}},
+        {9, "Exit program", {}}
+    };
+
+
+    int level = 0;
+    bool finished = false;
+    while(!finished){
+        clearScreen();
+        if(level == 0){
+            cout << " Main menu" << endl << endl;
+        }
+        for(auto root : mainmenu){
+            if(level == 0){
+                if(root.key != 0){
+                    cout << "   " << root.key << ". " <<root.name << endl;
+                } else {
+                    cout << "   " <<root.name << endl;
+                }
+            } else if(root.key == level) {
+                cout << " " << root.name << " menu" << endl << endl;
+                for(auto option : root.options){
+                    if(option.key != 0){
+                        cout << "   " << option.key << ". " <<option.name << endl;
+                    } else {
+                        cout << "   " <<option.name << endl;
+                    }
+                }
+            }
+        }
+
+        int option_selected = false;
+        cout << endl << "Choose an option: ";
+        while(!option_selected){
+            int cmd = getInt();
+            if(cmd == 9){ //exit
+               option_selected = true;
+               if(level == 0) finished = true;
+               level = 0;
+               break;
+            }
+
+            for(auto root : mainmenu){
+                if(level == 0 && root.key == cmd && root.key != 0){
+                    option_selected = true;
+                    level = cmd;
+                    break;
+                } else if(level != 0 && root.key == level) {
+                    for(auto option : root.options){
+                        if(cmd != 0 && option.key == cmd ){
+                            option_selected = true;
+                            option.func();
+                            pause();
+                            break;
+                        }
+                    }
+                }
+            }
+            if(!option_selected){
+                cout << "Please choose a valid option: ";
+            }
+        }
+    }
+}
+
+
 int main()
 {
-    bool mainmenu_cycle_running=true;
+    loadMenu();
+
+return 0;
+/*    bool mainmenu_cycle_running=true;
     bool command_valid=true;
     //vector<Bike> bikes;
     vector<Bike*> bikes; // tároljuk pointerbe
@@ -162,7 +291,23 @@ int main()
                 break;
             case 3: showMenu(3); break;
 
-            case 9: finished=true; break;
+            case 4: //Owner menu
+                while(!subexit){
+                    showMenu(4);
+                    switch(getInt()){
+                        case 1: pause(1); break; // pause() helyére kerülnek a különböző függvények
+                        case 2: pause(2); break;
+                        case 3: pause(2); break;
+                        case 4: pause(2); break;
+                        case 9: subexit=true; break;
+                        default: cout << "Please choose another option: ";
+                    }
+                }
+                break;
+
+            case 9: finished=true;
+                break;
+
             default: cout << "Please choose another option: ";
         }
     }
@@ -170,7 +315,7 @@ int main()
     //Program vége, mentések, stb..
     cout << endl << "Auf wiedersehen!" << endl << endl;
 
-
+*/
 
 /*
     do{
