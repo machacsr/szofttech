@@ -31,6 +31,7 @@
 *.out
 *.app
 <<<<<<< HEAD
+<<<<<<< HEAD
 Main.pro.user.b56412a
 *.user
 Main.pro.user
@@ -43,6 +44,8 @@ Main.pro.user
 Main.pro.*
 BikeReservation.pro.*
 =======
+=======
+>>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991
 *.b56412a
 .idea/misc.xml
 .idea/modules.xml
@@ -79,4 +82,7 @@ cmake-build-debug/CMakeFiles/szofttech.dir/link.txt
 cmake-build-debug/CMakeFiles/clion-log.txt
 cmake-build-debug/CMakeFiles/clion-environment.txt
 cmake-build-debug/CMakeCache.txt
+<<<<<<< HEAD
+>>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991
+=======
 >>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991

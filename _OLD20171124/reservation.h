@@ -32,6 +32,9 @@ public:
 =======
 
     int getCost() const;
+<<<<<<< HEAD:_OLD20171124/reservation.h
+>>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991:reservation.h
+=======
 >>>>>>> 33a478979e3047f9dcfa8d3e10bfcc55c5238991:reservation.h
 };
 
