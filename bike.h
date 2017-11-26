@@ -18,8 +18,8 @@ class Bike
 public:
     Bike(int bike_id,int price,string type,string color,string status,vector<Accessory*> accessories);
 
-    void setStatus(string st);
-    void setPrice(int pr);
+    void setStatus(string status);
+    void setPrice(int price);
     int getBikeId();
     int getPrice();
     string getType();
