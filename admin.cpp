@@ -9,7 +9,7 @@ Admin::Admin(vector<Bike> *bikes):
 void Admin::setBikePrice()
 {
     int new_price;
-    for(auto i :*bikes)
+    for(auto &i :*bikes)
     {
         cout <<"New Price:"<<endl;
         cin>>new_price;
