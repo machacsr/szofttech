@@ -14,6 +14,7 @@ class Repairman
 
 public:
     Repairman(vector<Bike> *bikes,vector<Comment> *repairlist);
+    void repairBike();
     void testFunc(){
         cout << "Repairman Test function, torolheto!";
     }

@@ -3,9 +3,12 @@
 MainApp::MainApp()
 {
     bikes=new vector<Bike>;
-    bikes->push_back(Bike(1,1000,"BMX","red","res",{nullptr}));
-    bikes->push_back(Bike(2,2000,"Monti","black","res",{nullptr}));
+    reservations=new vector<Reservation>;
+    repairlist=new vector<Comment>;
+    bikes->push_back(Bike(1,1000,"BMX","red","need",{nullptr}));
+    bikes->push_back(Bike(2,2000,"Monti","black","don't need",{nullptr}));
     admin=new Admin(bikes);
+    repairman=new Repairman(bikes,repairlist);
 
 
 }
@@ -40,7 +43,7 @@ void MainApp::loadMenu(){
         }
         if(level == 2){
             menu_title = "Repairman menu";
-            menu.push_back("Add Bike");    if(cmd==++i) repairman->testFunc();
+            menu.push_back("Repair Bike");    if(cmd==++i){this->listBikes(); repairman->repairBike();}
             menu.push_back("Search Bike"); if(cmd==++i) repairman->testFunc();
             if((int)menu.size() < cmd){valid_cmd = false;}
         }
@@ -111,7 +114,7 @@ void MainApp::listBikes()
 {
     for(auto i :*bikes)
     {
-        cout << i.getPrice()<<endl;
+        cout <<"ID: "<<i.getBikeId()<<" Price: "<< i.getPrice()<<" Status: "<<i.getStatus()<<endl;
     }
 }
 
