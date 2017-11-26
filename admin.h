@@ -16,6 +16,7 @@ public:
     void testFunc(){
         cout << "Admin Test function, torolheto!";
     }
+    void setBikePrice();
 };
 
 #endif // ADMIN_H

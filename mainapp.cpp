@@ -34,7 +34,7 @@ void MainApp::loadMenu(){
             menu_title = "Admin menu";
             menu.push_back("Add Bike");    if(cmd==++i) admin->testFunc();
             menu.push_back("Search Bike"); if(cmd==++i) admin->testFunc();
-            menu.push_back("Edit Bikes");  if(cmd==++i) admin->testFunc();
+            menu.push_back("Edit Bikes");  if(cmd==++i) admin->setBikePrice();
             menu.push_back("Delete Bike"); if(cmd==++i) admin->testFunc();
             if((int)menu.size() < cmd){valid_cmd = false;}
         }
@@ -111,7 +111,7 @@ void MainApp::listBikes()
 {
     for(auto i :*bikes)
     {
-        i.getPrice();
+        cout << i.getPrice()<<endl;
     }
 }
 
