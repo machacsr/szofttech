@@ -2,6 +2,10 @@
 
 MainApp::MainApp()
 {
+    bikes=new vector<Bike>;
+    bikes->push_back(Bike(1,1000,"BMX","red","res",{nullptr}));
+    bikes->push_back(Bike(2,2000,"Monti","black","res",{nullptr}));
+    admin=new Admin(bikes);
 
 
 }
@@ -105,7 +109,10 @@ void MainApp::saveData()
 
 void MainApp::listBikes()
 {
-    cout << "Bike list ide.." << endl;
+    for(auto i :*bikes)
+    {
+        i.getPrice();
+    }
 }
 
 void MainApp::pause(){
