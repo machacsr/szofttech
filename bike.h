@@ -16,7 +16,7 @@ class Bike
     string status;
     vector<Accessory*> accessories;
 public:
-    Bike();
+    Bike(int bike_id,int price,string type,string color,string status,vector<Accessory*> accessories);
 
     void setStatus(string st);
     void setPrice(int pr);
