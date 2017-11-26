@@ -1,6 +1,7 @@
 #include "admin.h"
 
-Admin::Admin()
+Admin::Admin(vector<Bike> *bikes):
+    bikes(bikes)
 {
 
 }

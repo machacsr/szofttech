@@ -1,6 +1,7 @@
 #include "operator.h"
 
-Operator::Operator()
+Operator::Operator(vector<Bike> *bikes, vector<Reservation> *reservations):
+    bikes(bikes), reservations(reservations)
 {
 
 }

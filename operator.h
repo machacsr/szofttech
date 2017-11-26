@@ -13,14 +13,13 @@ class Operator
     vector<Reservation> *reservations;
 
 public:
-    Operator();
+    Operator(vector<Bike> *bikes, vector<Reservation> *reservations);
     void listBikes();
     void searchReservation();
     void addReservation();
     void editReservation();
     void deleteReservation();
     void sendBikeToRepair();
-
 };
 
 #endif // OPERATOR_H
