@@ -15,7 +15,7 @@ class Operator
 
 public:
     Operator(vector<Bike> *bikes, vector<Reservation> *reservations);
-    void listBikes();
+    void listReservations();
     void searchReservation();
     void addReservation();
     void editReservation();

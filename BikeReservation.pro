@@ -12,7 +12,8 @@ SOURCES += main.cpp \
     operator.cpp \
     admin.cpp \
     repairman.cpp \
-    accessory.cpp
+    accessory.cpp \
+    custom.cpp
 
 HEADERS += \
     mainapp.h \
@@ -23,4 +24,6 @@ HEADERS += \
     operator.h \
     admin.h \
     repairman.h \
-    accessory.h
+    accessory.h \
+    custom.h \
+    custom.h

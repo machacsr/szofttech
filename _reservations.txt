@@ -1,0 +1,6 @@
+#Reservation(int res_id, string status, string name, string idnumber, string date_current, string date_from, string date_to, vector<int> bike_ids, string comment)
+"4";"status 1";"Name Name";"ID4485565";"2017-11-23 11:25:32";"2017-11-26";"2017-11-28";"23,24,35";"comment"
+"17";"status 2";"Naaame Naaaaa";"BH154654";"2017-11-23 11:25:32";"2017-11-26";"2017-11-28";"23,24,35";""
+"156";"status 3";"Nameeeee";"9456555KU";"2017-11-23 11:25:32";"2017-11-26";"2017-11-28";"23,24,35";"comment2"
+"157";"Reserved";"Test";"654654UK";"2017-11-27 15:14:50";"2017-11-30";"2017-12-01";"12";"test comment"
+"158";"Reserved";"aasdf";"asdf";"2017-11-27 15:19:33";"asdf";"asdf";"15,2";""

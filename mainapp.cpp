@@ -9,6 +9,7 @@ MainApp::MainApp()
     bikes->push_back(Bike(2,2000,"Monti","black","don't need",{nullptr}));
     admin=new Admin(bikes);
     repairman=new Repairman(bikes,repairlist);
+    op=new Operator(bikes,reservations);
 }
 
 
@@ -22,8 +23,11 @@ void MainApp::runTest()
      */
   //  cout << getToday() << endl;
   //  cout << getNow();
-    loadReservations();
+  //  loadReservations();
+  //  saveReservations();
     //repairman->repairBike();
+ //   for(auto res:*reservations)
+   //     res.print();
     pause();
 
 }
@@ -66,7 +70,7 @@ void MainApp::loadMenu(){
         }
         if(level == 3){
             menu_title = "Operator menu";
-            menu.push_back("List Bikes");         if(cmd==++i) this->listBikes();
+            menu.push_back("List Reservations");  if(cmd==++i) op->listReservations();
             menu.push_back("Search Reservation"); if(cmd==++i) op->searchReservation();
             menu.push_back("Add Reservation");    if(cmd==++i) op->addReservation();
             menu.push_back("Edit Reservation");   if(cmd==++i) op->editReservation();
@@ -119,16 +123,14 @@ void MainApp::loadMenu(){
 
 void MainApp::loadData()
 {
-
+    loadReservations();
 }
 
 void MainApp::loadReservations()
 {
-    string filename = file_location + "reservations.txt";
+    string filename = file_location + filename_reservations;
     string line;
     Reservation tmp_res;
-
-
 
    // Reservation(int res_id, string status, string name, string idnumber, string date_current, string date_from, string date_to, vector<int> bike_ids, string comment)
 
@@ -148,15 +150,14 @@ void MainApp::loadReservations()
                 int params = 9;
                 int i=0;
                 string token[params] = {"", "", "", "", "", "", "", "", ""};
-                while ((pos = line.find(delimiter)) != string::npos && i<params) {
+                while ((pos = line.find(delimiter)) != string::npos && i<=params) {
                     token[i++] = line.substr(0, pos);
                     line.erase(0, pos + delimiter.length());
                 }
-
+                token[i] = line; // last field
                 //bike_id-k szétválaszztása:
                 vector<int> bike_ids = splitInt(token[7], ',');
-
-                reservations->push_back({
+                reservations->push_back(Reservation(
                             stoi(token[0]), //res_id
                             token[1],       //status
                             token[2],       //name
@@ -166,7 +167,7 @@ void MainApp::loadReservations()
                             token[6],       //date_to
                             bike_ids,       //bike_ids
                             token[8]        //comment
-                            });
+                            ));
               //  ltrim(rtrim(s))
             }
         }
@@ -176,7 +177,41 @@ void MainApp::loadReservations()
 
 void MainApp::saveData()
 {
+    saveReservations();
+}
 
+void MainApp::saveReservations()
+{
+    string filename = file_location + filename_reservations;
+
+    ofstream out(filename);
+    if (out.is_open())
+    {
+        out << "#" <<"Reservation(int res_id, string status, string name, string idnumber, string date_current, string date_from, string date_to, vector<int> bike_ids, string comment)";
+
+        for(auto res:*reservations){
+            out << endl;
+            out << "\"" << res.getRes_id() << "\";";
+            out << "\"" << res.getStatus() << "\";";
+            out << "\"" << res.getName() << "\";";
+            out << "\"" << res.getIdnumber() << "\";";
+            out << "\"" << res.getDate_current() << "\";";
+            out << "\"" << res.getDate_from() << "\";";
+            out << "\"" << res.getDate_to() << "\";";
+            out << "\"";
+            //Bike id-k kiirasa:
+            for(auto bike_id : res.getBike_ids()){
+                out << bike_id;
+                if(bike_id != res.getBike_ids().back()){
+                    out << ",";
+                }
+            }
+            out << "\";";
+            out << "\"" << res.getComment() << "\"";
+        }
+      out.close();
+    }
+    else cout << "Unable to open file";
 }
 
 void MainApp::listBikes()

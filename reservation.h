@@ -35,6 +35,7 @@ public:
     void setComment(const string &value);
     string getStatus() const;
     void setStatus(const string &value);
+    void print();
 };
 
 #endif // RESERVATION_H

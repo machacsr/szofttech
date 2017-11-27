@@ -25,6 +25,10 @@ class MainApp
     Operator *op;
     Admin *admin;
     Repairman *repairman;
+    string filename_accessories;
+    string filename_bikes;
+    string filename_comments;
+    string filename_reservations = "_reservations.txt";
 
     // Ezt írjátok át majd a megfelelő értékre magatoknak és a többit kommentezzétek ki.
     string file_location = "d:\\suli\\szofttech\\Project\\szofttech\\"; //Botond
@@ -39,6 +43,7 @@ public:
     void clearScreen();
     void loadData();
     void loadReservations();
+    void saveReservations();
     void saveData();
     void listBikes();
     void findBikes();

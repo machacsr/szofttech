@@ -74,3 +74,9 @@ vector<int> splitInt(const string &s, char delim) {
     }
     return tokens;
 }
+
+void printTitle(string title)
+{
+    cout << "      " << title << endl;
+    cout << "----------------------------------------" << endl << endl;
+}

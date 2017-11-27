@@ -70,6 +70,22 @@ void Reservation::setStatus(const string &value)
     status = value;
 }
 
+void Reservation::print()
+{
+    cout << "Reservation ID: " << res_id << " Status: " << status << endl;
+    cout << "Date:  " << date_current << endl;
+    cout << "Name: " << name << "       ID number: " << idnumber << endl;
+    cout << "From: " << date_from;
+    cout << " to: " << date_to;
+    cout << endl;
+    cout << "Comment: " << comment << endl;
+    cout << "Bike(s): " << endl;
+    for(auto bike_id: bike_ids){
+        cout << "Bike ID: " << bike_id << endl;
+    }
+    cout << "--------------------------------------------------------------------" << endl;
+}
+
 Reservation::Reservation()
 {
 
