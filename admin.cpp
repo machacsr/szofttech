@@ -12,7 +12,7 @@ void Admin::setBikePrice()
     for(auto &i :*bikes)
     {
         cout <<"New Price:"<<endl;
-        cin>>new_price;
+        new_price = getInt();
         i.setPrice(new_price);
     }
 

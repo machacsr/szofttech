@@ -2,6 +2,7 @@
 #define OWNER_H
 #include <iostream>
 #include <vector>
+#include "custom.h"
 #include "bike.h"
 #include "comment.h"
 #include "reservation.h"

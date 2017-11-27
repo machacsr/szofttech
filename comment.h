@@ -1,6 +1,7 @@
 #ifndef COMMENT_H
 #define COMMENT_H
 #include <iostream>
+#include "custom.h"
 using namespace std;
 
 

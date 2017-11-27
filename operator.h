@@ -2,6 +2,7 @@
 #define OPERATOR_H
 #include <iostream>
 #include <vector>
+#include "custom.h"
 #include "bike.h"
 #include "reservation.h"
 

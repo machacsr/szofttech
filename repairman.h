@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include "bike.h"
+#include "custom.h"
 #include "comment.h"
 using namespace std;
 

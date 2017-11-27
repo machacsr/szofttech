@@ -13,14 +13,14 @@ void Repairman::repairBike()
     string status;
     bool finder=false;
     cout << "Type a Bike ID to repair"<<endl;
-    cin >> bike_id;
+    bike_id = getInt();
     for(auto &i :*bikes)
     {
         if(i.getBikeId()==bike_id)
         {
             finder=true;
             cout << "Type the new status:"<<endl;
-            cin >> status;
+            status = getString();
             i.setStatus(status);
         }
     }

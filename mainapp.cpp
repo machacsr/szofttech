@@ -9,9 +9,26 @@ MainApp::MainApp()
     bikes->push_back(Bike(2,2000,"Monti","black","don't need",{nullptr}));
     admin=new Admin(bikes);
     repairman=new Repairman(bikes,repairlist);
+}
 
+
+void MainApp::runTest()
+{
+    /*********    ACHTUNG!    ****************
+     *
+     * Itt tudtok gyorsteszteket csinálni, még mielőtt betölt a menü.
+     *
+     * pl:
+     */
+  //  cout << getToday() << endl;
+  //  cout << getNow();
+    loadReservations();
+    //repairman->repairBike();
+    pause();
 
 }
+
+
 
 void MainApp::loadMenu(){
     int level = 0;
@@ -43,7 +60,7 @@ void MainApp::loadMenu(){
         }
         if(level == 2){
             menu_title = "Repairman menu";
-            menu.push_back("Repair Bike");    if(cmd==++i){this->listBikes(); repairman->repairBike();}
+            menu.push_back("Repair Bike"); if(cmd==++i){this->listBikes(); repairman->repairBike();}
             menu.push_back("Search Bike"); if(cmd==++i) repairman->testFunc();
             if((int)menu.size() < cmd){valid_cmd = false;}
         }
@@ -105,6 +122,58 @@ void MainApp::loadData()
 
 }
 
+void MainApp::loadReservations()
+{
+    string filename = file_location + "reservations.txt";
+    string line;
+    Reservation tmp_res;
+
+
+
+   // Reservation(int res_id, string status, string name, string idnumber, string date_current, string date_from, string date_to, vector<int> bike_ids, string comment)
+
+    ifstream input(filename);
+    if (input.is_open()){
+        while (input.good()){
+            getline(input, line);
+            std::string delimiter = "\";\"";   //A határoló string: ";" (mint egy csv fájlnál)
+
+            //kommentezni lehet ezzel a karakterrel: #
+            if(line.at(0) != '#' && line.length()>0){
+                line.erase(0, 1);  // első "-t töröljük
+                line.erase(line.length()-1, line.length()); //utolsó "-t töröljük
+
+                //mezők szétválasztása:
+                size_t pos = 0;
+                int params = 9;
+                int i=0;
+                string token[params] = {"", "", "", "", "", "", "", "", ""};
+                while ((pos = line.find(delimiter)) != string::npos && i<params) {
+                    token[i++] = line.substr(0, pos);
+                    line.erase(0, pos + delimiter.length());
+                }
+
+                //bike_id-k szétválaszztása:
+                vector<int> bike_ids = splitInt(token[7], ',');
+
+                reservations->push_back({
+                            stoi(token[0]), //res_id
+                            token[1],       //status
+                            token[2],       //name
+                            token[3],       //idnumber
+                            token[4],       //date_current
+                            token[5],       //date_from
+                            token[6],       //date_to
+                            bike_ids,       //bike_ids
+                            token[8]        //comment
+                            });
+              //  ltrim(rtrim(s))
+            }
+        }
+        input.close();
+    }
+}
+
 void MainApp::saveData()
 {
 
@@ -116,33 +185,6 @@ void MainApp::listBikes()
     {
         cout <<"ID: "<<i.getBikeId()<<" Price: "<< i.getPrice()<<" Status: "<<i.getStatus()<<endl;
     }
-}
-
-void MainApp::pause(){
-    cout << endl << endl << endl << "Press ENTER to return to menu...";
-    string tmp;
-    getline(cin,tmp);
-}
-
-int MainApp::getInt(){
-    string inputString="";
-    int inputInt=0;
-    while(true){ //amíg nem kapunk számot, addig próbálkozunk.
-        getline(cin,inputString);
-        try{
-            inputInt=stoi(inputString);
-            break;
-        }catch(exception &e){
-            cout << "Invalid input. Please enter a number: ";
-        }
-    }
-    return inputInt;
-}
-
-string MainApp::getString(){
-    string inputString="";
-    getline(cin,inputString);
-    return inputString;
 }
 
 void MainApp::clearScreen(){
