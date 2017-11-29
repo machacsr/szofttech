@@ -149,7 +149,8 @@ void MainApp::loadReservations()
                 size_t pos = 0;
                 int params = 9;
                 int i=0;
-                string token[params] = {"", "", "", "", "", "", "", "", ""};
+
+                string token[9] = {"", "", "", "", "", "", "", "", ""};
                 while ((pos = line.find(delimiter)) != string::npos && i<=params) {
                     token[i++] = line.substr(0, pos);
                     line.erase(0, pos + delimiter.length());
