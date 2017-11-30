@@ -6,20 +6,22 @@
 #include "bike.h"
 #include "custom.h"
 #include "comment.h"
+#include "employee.h"
 using namespace std;
 
 
-class Repairman
+class Repairman:public Employee
 {
     vector<Bike> *bikes;
-    vector<Comment> *repairlist;
+    vector<Comment> *comments;
+    vector<Bike> badbikes;
 
 public:
-    Repairman(vector<Bike> *bikes,vector<Comment> *repairlist);
+    Repairman(vector<Bike> *bikes,vector<Comment> *c);
     void repairBike();
-    void testFunc(){
-        cout << "Repairman Test function, torolheto!";
-    }
+    void AddComment();
+    void WriteBadBikesToFile();
+    void WriteCommentsToFile();
 };
 
 #endif // REPAIRMAN_H

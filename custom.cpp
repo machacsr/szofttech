@@ -80,3 +80,27 @@ void printTitle(string title)
     cout << "      " << title << endl;
     cout << "----------------------------------------" << endl << endl;
 }
+
+vector<Accessory *> GenerateAccessory()
+{
+    vector<Accessory*> accessories;
+    Accessory* _break=new Break();
+    _break->Initialize();
+    _break->setId(0);
+    Accessory* _lamp=new Lamp();
+    _lamp->Initialize();
+    _lamp->setId(0);
+    Accessory* _stwheel=new Steering_Wheel();
+    _stwheel->Initialize();
+    _stwheel->setId(0);
+    Accessory* _wheel= new Wheel();
+    _wheel->Initialize();
+    _wheel->setId(0);
+    accessories.push_back(_break);
+    accessories.push_back(_lamp);
+    accessories.push_back(_stwheel);
+    accessories.push_back(_wheel);
+    return accessories;
+}
+
+

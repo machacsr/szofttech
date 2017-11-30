@@ -4,11 +4,10 @@ MainApp::MainApp()
 {
     bikes=new vector<Bike>;
     reservations=new vector<Reservation>;
-    repairlist=new vector<Comment>;
-    bikes->push_back(Bike(1,1000,"BMX","red","need",{nullptr}));
-    bikes->push_back(Bike(2,2000,"Monti","black","don't need",{nullptr}));
+//    bikes->push_back(Bike(1,1000,"BMX","red","need",{nullptr}));
+//    bikes->push_back(Bike(2,2000,"Monti","black","don't need",{nullptr}));
     admin=new Admin(bikes);
-    repairman=new Repairman(bikes,repairlist);
+    repairman=new Repairman(bikes,comments);
     op=new Operator(bikes,reservations);
 }
 
@@ -65,7 +64,12 @@ void MainApp::loadMenu(){
         if(level == 2){
             menu_title = "Repairman menu";
             menu.push_back("Repair Bike"); if(cmd==++i){this->listBikes(); repairman->repairBike();}
-            menu.push_back("Search Bike"); if(cmd==++i) repairman->testFunc();
+            menu.push_back("Search Bike"); if(cmd==++i) (repairman->BikeSearch(bikes)).PrintBike();
+            menu.push_back("List Bike"); if(cmd==++i) repairman->BikeList(bikes);
+            menu.push_back("Save Reapired Bikes to file"); if(cmd==++i) repairman->WriteBadBikesToFile();
+            menu.push_back("Save Comments to file"); if(cmd==++i) repairman->WriteCommentsToFile();
+            menu.push_back("Load Comments from file"); if(cmd==++i) repairman->BikeList(bikes);
+            menu.push_back("Save Bikes to file"); if(cmd==++i) repairman->WriteToFile("repairman_bikes.txt",bikes);
             if((int)menu.size() < cmd){valid_cmd = false;}
         }
         if(level == 3){

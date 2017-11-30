@@ -13,7 +13,12 @@ SOURCES += main.cpp \
     admin.cpp \
     repairman.cpp \
     accessory.cpp \
-    custom.cpp
+    custom.cpp \
+    lamp.cpp \
+    steering_wheel.cpp \
+    break.cpp \
+    wheel.cpp \
+    employee.cpp
 
 HEADERS += \
     mainapp.h \
@@ -26,4 +31,9 @@ HEADERS += \
     repairman.h \
     accessory.h \
     custom.h \
-    custom.h
+    custom.h \
+    lamp.h \
+    steering_wheel.h \
+    break.h \
+    wheel.h \
+    employee.h

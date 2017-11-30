@@ -20,13 +20,13 @@ class MainApp
 {
     vector<Bike> *bikes;
     vector<Reservation> *reservations;
-    vector<Comment> *repairlist;
+    vector<Comment> *comments;
     Owner *owner;
     Operator *op;
     Admin *admin;
     Repairman *repairman;
     string filename_accessories;
-    string filename_bikes;
+    string filename_bikes="_bikes.txt";
     string filename_comments;
     string filename_reservations = "_reservations.txt";
 
