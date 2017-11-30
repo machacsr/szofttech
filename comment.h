@@ -12,6 +12,9 @@ class Comment
     string comment;
     time_t date;
 public:
+    time_t getDate() const;
+
+public:
     Comment(int comment_id,int bike_id,string comment,time_t date);
     void printComment();
 };

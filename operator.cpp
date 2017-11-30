@@ -37,13 +37,19 @@ void Operator::addReservation()
     cout << "ID number: ";
     idnumber = getString();
 
-    //Itt még validálni kéne a dátumokat:
+    /*Itt még validálni kéne a dátumokat: //nem kell validálni, aszonták jó ez így
+     * nem arra kiváncsiak, hogy milyen fasza programot tudunk összehozni,
+     * hanem hogy mennyire tudjuk tartani magunkat a tervhez, az osztály diagramhoz
+     */
     cout << "Date from (accepted format: YYYY-MM-DD): ";
     date_from = getString();
     cout << "Date to (accepted format: YYYY-MM-DD): ";
     date_to = getString();
 
-    //Itt kéne egy lista az adott dátumok között elérhető biciklikről + validálás
+    /*Itt kéne egy lista az adott dátumok között elérhető biciklikről + validálás
+     * apró kérdés:
+     *      -   miért kéri be kétszer a bicajt?
+    */
     cout << "Select bike(s): ";
     int bike_id = getInt();
     bike_ids.push_back(bike_id);

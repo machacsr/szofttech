@@ -9,3 +9,7 @@ Comment::Comment(int comment_id, int bike_id, string comment, time_t date):
 {
 
 }
+
+time_t Comment::getDate() const {
+    return date;
+}

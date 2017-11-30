@@ -80,3 +80,7 @@ void printTitle(string title)
     cout << "      " << title << endl;
     cout << "----------------------------------------" << endl << endl;
 }
+
+string SplitEgymasAgyazasSeged(vector<string> SplitStr) {
+    return std::string(SplitStr[0]);
+}

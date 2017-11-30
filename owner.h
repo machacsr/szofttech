@@ -16,9 +16,15 @@ class Owner
 
 public:
     Owner(vector<Bike> *bikes,vector<Reservation> *reservations,vector<Comment> *repairlist);
+
+    void todayIncome();
+    void monthlyIncome();
+    void showRepairList();
+
     void testFunc(){
         cout << "Owner Test function, torolheto!";
     }
+
 };
 
 #endif // OWNER_H

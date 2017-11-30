@@ -10,6 +10,7 @@ MainApp::MainApp()
     admin=new Admin(bikes);
     repairman=new Repairman(bikes,repairlist);
     op=new Operator(bikes,reservations);
+    owner= new Owner(bikes, reservations, repairlist);
 }
 
 
@@ -80,11 +81,9 @@ void MainApp::loadMenu(){
         }
         if(level == 4){
             menu_title = "Owner menu";
-            menu.push_back("Add Bike");    if(cmd==++i) owner->testFunc();
-            menu.push_back("Search Bike"); if(cmd==++i) owner->testFunc();
-            menu.push_back("Search Bike"); if(cmd==++i) owner->testFunc();
-            menu.push_back("Search Bike"); if(cmd==++i) owner->testFunc();
-            menu.push_back("Search Bike"); if(cmd==++i) owner->testFunc();
+            menu.push_back("Today Income");    if(cmd==++i) owner->todayIncome();
+            menu.push_back("Monthly Income"); if(cmd==++i) owner->monthlyIncome();
+            menu.push_back("Show Repair List"); if(cmd==++i) owner->showRepairList();
             if((int)menu.size() < cmd){valid_cmd = false;}
         }
 
