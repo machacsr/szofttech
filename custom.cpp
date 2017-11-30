@@ -81,11 +81,10 @@ void printTitle(string title)
     cout << "----------------------------------------" << endl << endl;
 }
 
-<<<<<<< HEAD
 string SplitEgymasAgyazasSeged(vector<string> SplitStr) {
     return std::string(SplitStr[0]);
 }
-=======
+
 vector<Accessory *> GenerateAccessory()
 {
     vector<Accessory*> accessories;
@@ -109,4 +108,3 @@ vector<Accessory *> GenerateAccessory()
 }
 
 
->>>>>>> 43c2fdb10a0fb6f21136d6a2444694480add2087
