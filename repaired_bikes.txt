@@ -1,0 +1,70 @@
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
+Id: 1 type: BMX price: 1525
+Break:
+Id: 1 type: visio maker: hunbreak
+Lamp:
+Id: 1 type: halogen maker: mrlight
+Steering Wheel:
+Id: 1 type: steer maker: kiralywheel
+Wheel:
+Id: 1 type: gumi maker: tesco
+---------------------------
