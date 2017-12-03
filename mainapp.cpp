@@ -9,7 +9,7 @@ MainApp::MainApp()
     admin=new Admin(bikes);
     repairman=new Repairman(bikes,comments);
     op=new Operator(bikes,reservations);
-    owner= new Owner(bikes, reservations, repairlist);
+    owner= new Owner(bikes, reservations, comments);
 }
 
 

@@ -14,10 +14,10 @@ Comment::Comment(int bike_id, string comment, string date):
 
 }
 
-<<<<<<< HEAD
+
 time_t Comment::getDate() const {
     return date;
-=======
+}
 Comment::Comment(int bike_id)
 {
     cout<<"What is the comment for this bike?"<<endl;
@@ -37,5 +37,4 @@ string Comment::getInfo()
     str+="\n";
     str+=comment+"\n";
     return str;
->>>>>>> 43c2fdb10a0fb6f21136d6a2444694480add2087
 }
